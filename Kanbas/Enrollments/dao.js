@@ -21,8 +21,17 @@ export function enrollUserInCourse(userId, courseId) {
   return null; 
 }
 
+// export function unenrollUserFromCourse(userId, courseId) {
+//   Database.enrollments = Database.enrollments.filter(
+//     (enrollment) =>
+//       !(enrollment.user === userId && enrollment.course === courseId)
+//   );
+// }
+
+
 export function unenrollUserFromCourse(userId, courseId) {
-  Database.enrollments = Database.enrollments.filter(
+  const { enrollments } = Database;
+  Database.enrollments = enrollments.filter(
     (enrollment) =>
       !(enrollment.user === userId && enrollment.course === courseId)
   );
@@ -32,6 +41,6 @@ export function findEnrollmentsByUserId(userId) {
   return Database.enrollments.filter((enrollment) => enrollment.user === userId);
 }
 
-export function showallEnrollments() {
+export function findAllEnrollments() {
   return Database.enrollments;
 }

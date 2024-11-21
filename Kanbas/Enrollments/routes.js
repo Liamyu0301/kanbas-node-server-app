@@ -1,4 +1,3 @@
-// Kanbas/Enrollments/routes.js
 import * as enrollmentsDao from "./dao.js";
 
 export default function EnrollmentsRoutes(app) {
@@ -25,7 +24,7 @@ export default function EnrollmentsRoutes(app) {
   });
 
   app.get("/api/enrollments", (req, res) => {
-    const enrollments = enrollmentsDao.showallEnrollments();
-    res.status(200).json(enrollments);
+    const enrollments = dao.findAllEnrollments();
+    res.send(enrollments);
   });
 }
