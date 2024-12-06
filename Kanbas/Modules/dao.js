@@ -14,6 +14,7 @@ export function deleteModule(moduleId) {
 
 export function createModule(module) {
   delete module._id
+  updateModule(module._id, module);
   return model.create(module);
   // const newModule = { ...module, _id: Date.now().toString() };
   // Database.modules = [...Database.modules, newModule];
